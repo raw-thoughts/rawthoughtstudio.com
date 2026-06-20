@@ -91,7 +91,12 @@ button { font-family: inherit; }
   position: relative;
   overflow: hidden;
   border-radius: 6px;
-  background: repeating-linear-gradient(135deg, var(--tile-a) 0 9px, var(--tile-b) 9px 18px);
+  /* striped fallback shows only until/if an image loads */
+  background-color: var(--tile-a);
+  background-image: repeating-linear-gradient(135deg, var(--tile-a) 0 9px, var(--tile-b) 9px 18px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transform: scale(1);
   transition: flex .6s var(--ease), transform .55s var(--ease);
   cursor: pointer;
@@ -100,24 +105,35 @@ button { font-family: inherit; }
   flex: 1.5;
   transform: scale(1.025);
 }
+/* scrim so the mono labels stay readable over photos */
+.gtile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .34), transparent 26%, transparent 68%, rgba(0, 0, 0, .5));
+  pointer-events: none;
+  z-index: 1;
+}
 .gtile-num {
   position: absolute;
   top: 14px;
   left: 15px;
+  z-index: 2;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: .16em;
-  color: #9a968e;
+  color: rgba(255, 255, 255, .82);
 }
 .gtile-label {
   position: absolute;
   left: 15px;
   bottom: 14px;
+  z-index: 2;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(255, 255, 255, .95);
 }
 
 .hero-foot {

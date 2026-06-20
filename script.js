@@ -41,6 +41,19 @@ const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   items.forEach((el) => io.observe(el));
 })();
 
+// ---- Assemble mailto links at runtime (anti-harvest) ----------
+// The full address never appears in the HTML source; bots that scrape
+// static markup (or don't run JS) never see a `user@domain` string.
+(function mailto() {
+  document.querySelectorAll("[data-mailto]").forEach((el) => {
+    const addr = el.dataset.user + "@" + el.dataset.domain;
+    const subject = el.dataset.subject
+      ? "?subject=" + encodeURIComponent(el.dataset.subject)
+      : "";
+    el.setAttribute("href", "mailto:" + addr + subject);
+  });
+})();
+
 // ---- Magnetic buttons -----------------------------------------
 (function magnetic() {
   if (reduce) return;
