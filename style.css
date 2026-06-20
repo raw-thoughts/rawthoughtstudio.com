@@ -237,12 +237,10 @@ button { font-family: inherit; }
 }
 .ephemera-copy { flex: 1 1 340px; }
 .ephemera .eyebrow { margin-bottom: 24px; }
-.ephemera-mark {
-  font-size: clamp(40px, 7vw, 92px);
-  font-weight: 500;
-  letter-spacing: .36em;
-  padding-left: .36em;
-  line-height: 1;
+.ephemera-wordmark {
+  display: block;
+  width: clamp(252px, 40vw, 480px);
+  height: auto;
 }
 .ephemera p {
   margin: 28px 0 0;
