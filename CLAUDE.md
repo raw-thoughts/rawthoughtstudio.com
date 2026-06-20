@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Static placeholder landing page for rawthoughtstudio.com. Plain HTML / CSS / JS — no build step, no framework, no SSR.
+Landing page for rawthoughtstudio.com — Raw Thoughts®, a global fashion partner that brings Asian designer brands to New York. Plain HTML / CSS / JS — no build step, no framework, no SSR.
+
+The page is the "Editorial" variation imported from the Claude Design project "Raw Thoughts Global Fashion". An editorial, black-on-white layout: a hover-expanding image gallery hero, a giant `Raw Thoughts®` wordmark with a live New York clock, mission / who-we-are sections, a dark EPHEMERA flagship band, and a centered partner CTA.
 
 ## Deployment
 
@@ -26,14 +28,16 @@ There is no test suite, linter, or build command.
 
 Three files, all at the repo root:
 
-- `index.html` — markup only. Pulls Fraunces + Inter from Google Fonts. The visual layers are: `.orbs` (animated background), `.grain` (SVG noise overlay), and `<main>` (text).
-- `style.css` — owns nearly all of the motion. Earth-tone palette is defined in `:root` custom properties. Four `.orb` elements drift and hue-cycle on independent long keyframe loops (38–60s) with `mix-blend-mode: screen` and heavy blur. Headline has a `breathe` animation that animates Fraunces' variable `SOFT` axis.
-- `script.js` — only one effect: pointer-driven parallax on the `.orbs` container via a lerp'd `requestAnimationFrame` loop, written to CSS custom properties (`--mx`, `--my`).
+- `index.html` — markup only. Pulls Space Grotesk + Space Mono from Google Fonts. Sections in order: `.hero` (gallery + wordmark), `.mission`, `.who`, `.ephemera` (dark band), `.partner` CTA, `.footer`. A single `#cursor` div is the custom cursor.
+- `style.css` — owns the layout and the palette. Near-black / paper-white editorial palette is defined in `:root` custom properties. Gallery tiles (`.gtile`) expand on `:hover` via `flex`/`transform` transitions; placeholder imagery is a diagonal striped gradient. `.reveal` elements fade/slide in (toggled by the `.in` class from JS).
+- `script.js` — four small IIFEs: a live `America/New_York` clock written into every `[data-clock]`, an `IntersectionObserver` that adds `.in` to `[data-reveal]` on scroll, magnetic translation on `[data-magnetic]`, and a lerp'd `requestAnimationFrame` custom-cursor loop.
+- `assets/ephemera-dots.png` — the EPHEMERA symbol (shown `filter: invert(1)` on the dark band).
 
-All animations respect `prefers-reduced-motion`.
+All motion respects `prefers-reduced-motion` (reveals show immediately; cursor and hover transitions disabled).
 
 ## Conventions
 
 - Keep it dependency-free and static. Do not introduce a bundler, framework, or server-rendered pages.
-- Earth-tone, low-saturation palette. New colors should match the existing muted browns / olive / clay range and stay desaturated against the near-black background.
-- Motion should remain subtle — long durations, low opacity, no sharp transitions.
+- Editorial, near-monochrome palette: `--ink` near-black text on `--paper` white, with `--cream` on dark bands. New colors should stay within this muted grey/stone range — no saturated hues.
+- Type is Space Grotesk (display/body) + Space Mono (labels, clock, eyebrows). Eyebrows are uppercase mono with wide letter-spacing.
+- Motion stays subtle and quick — short eased transitions on hover/reveal, no looping background animation.

@@ -3,32 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Raw Thoughts — coming soon." />
-  <meta name="theme-color" content="#0e0d0b" />
-  <meta property="og:title" content="Raw Thoughts" />
-  <meta property="og:description" content="Coming soon." />
+  <meta name="description" content="Raw Thoughts helps Asian designer brands land in New York — fashion's center — with their sensibility intact and none of the operational weight." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="Raw Thoughts® — Global Fashion Partner" />
+  <meta property="og:description" content="Asian design, landed in New York." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rawthoughtstudio.com" />
   <meta name="twitter:card" content="summary" />
-  <title>Raw Thoughts</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230e0d0b'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23c9bfae' stroke-width='1.5' opacity='0.85'/%3E%3C/svg%3E" />
+  <title>Raw Thoughts® — Global Fashion Partner</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23181715'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23f1efec' stroke-width='1.5' opacity='0.9'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200;9..144,300&family=Inter:wght@200;300&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="orb orb-4"></div>
-  </div>
-  <div class="grain"></div>
-  <main>
-    <h1>Raw Thoughts</h1>
-    <p><span class="dot"></span>coming soon</p>
-  </main>
+
+  <div id="cursor" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="gallery reveal" data-reveal>
+      <div class="gallery-row">
+        <div class="gtile">
+          <span class="gtile-num">01</span>
+          <span class="gtile-label">Pop-up · NY</span>
+        </div>
+        <div class="gtile">
+          <span class="gtile-num">02</span>
+          <span class="gtile-label">Lookbook</span>
+        </div>
+        <div class="gtile">
+          <span class="gtile-num">03</span>
+          <span class="gtile-label">Short film</span>
+        </div>
+        <div class="gtile">
+          <span class="gtile-num">04</span>
+          <span class="gtile-label">Editorial</span>
+        </div>
+        <div class="gtile">
+          <span class="gtile-num">05</span>
+          <span class="gtile-label">Store</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="wordmark">Raw&nbsp;Thoughts<sup>®</sup></div>
+      <div class="hero-clock"><span data-clock>--:--:--</span></div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission">
+    <div class="reveal" data-reveal>
+      <div class="eyebrow">( Mission )</div>
+      <h2 class="mission-head">We help Asian designer brands land in New York — fashion's center — with their sensibility intact and none of the operational weight.</h2>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section id="who" class="who">
+    <div class="who-inner reveal" data-reveal>
+      <div class="who-head">
+        <div class="eyebrow">01 — Who we are</div>
+        <h3>A curator and a bridge.</h3>
+      </div>
+      <p>Raw Thoughts curates original designer brands from Seoul and across Asia, and helps them grow on the global stage. Through a high-sensibility online store and regular pop-ups in New York's fashion district, we give U.S. audiences the fastest, most vivid way to discover new Asian design.</p>
+    </div>
+  </section>
+
+  <!-- EPHEMERA -->
+  <section id="ephemera" class="ephemera">
+    <div class="ephemera-inner reveal" data-reveal>
+      <div class="ephemera-copy">
+        <div class="eyebrow eyebrow-dark">02 — The flagship</div>
+        <div class="ephemera-mark">EPHEMERA</div>
+        <p>Ephemera is how Raw Thoughts shows up in New York. A curated online store and a recurring pop-up in the fashion district — a fast, living touchpoint between Asian brands and American shoppers.</p>
+      </div>
+      <img class="ephemera-symbol" src="assets/ephemera-dots.png" alt="Ephemera symbol" />
+    </div>
+  </section>
+
+  <!-- PARTNER CTA -->
+  <section id="partner" class="partner">
+    <div class="reveal" data-reveal>
+      <div class="eyebrow">For brands</div>
+      <h2 class="partner-head">Bring your brand to New York.</h2>
+      <a href="#" class="btn" data-magnetic>Partner with us <span class="btn-arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-mark">Raw Thoughts®</span>
+    <span class="hide-sm">New York</span>
+    <span data-clock>--:--:--</span>
+    <span>© 2026 — All rights reserved</span>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
