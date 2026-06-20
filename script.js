@@ -51,8 +51,6 @@ const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       ? "?subject=" + encodeURIComponent(el.dataset.subject)
       : "";
     el.setAttribute("href", "mailto:" + addr + subject);
-    el.setAttribute("target", "_blank");
-    el.setAttribute("rel", "noopener");
   });
 })();
 
