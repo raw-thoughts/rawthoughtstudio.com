@@ -75,6 +75,9 @@ const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const cur = document.getElementById("cursor");
   if (!cur || reduce || window.matchMedia("(pointer: coarse)").matches) return;
 
+  // only now hide the OS cursor — touch / reduced-motion keep the default
+  document.body.classList.add("has-custom-cursor");
+
   let mx = window.innerWidth / 2,
     my = window.innerHeight / 2,
     cx = mx,

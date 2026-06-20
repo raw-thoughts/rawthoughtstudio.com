@@ -46,6 +46,9 @@ button { font-family: inherit; }
 
 /* ---- Custom cursor ----------------------------------------- */
 
+.has-custom-cursor,
+.has-custom-cursor * { cursor: none !important; }
+
 #cursor {
   position: fixed;
   top: 0;
