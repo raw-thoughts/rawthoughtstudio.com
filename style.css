@@ -49,6 +49,8 @@ button { font-family: inherit; }
 .has-custom-cursor,
 .has-custom-cursor * { cursor: none !important; }
 
+#cursor.on-dark { border-color: var(--cream); }
+
 #cursor {
   position: fixed;
   top: 0;

@@ -51,6 +51,8 @@ const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       ? "?subject=" + encodeURIComponent(el.dataset.subject)
       : "";
     el.setAttribute("href", "mailto:" + addr + subject);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
   });
 })();
 
@@ -99,6 +101,12 @@ const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       tscale = 1;
       cur.style.opacity = "0.55";
     });
+  });
+
+  // light cursor over dark sections so it stays visible
+  document.querySelectorAll("[data-cursor-dark]").forEach((el) => {
+    el.addEventListener("mouseenter", () => cur.classList.add("on-dark"));
+    el.addEventListener("mouseleave", () => cur.classList.remove("on-dark"));
   });
 
   (function loop() {
