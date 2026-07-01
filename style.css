@@ -106,7 +106,8 @@ button { font-family: inherit; }
   transition: flex .6s var(--ease), transform .55s var(--ease);
   cursor: pointer;
 }
-.gtile:hover {
+.gtile:hover,
+.gtile.active {
   flex: 1.5;
   transform: scale(1.025);
 }
@@ -325,6 +326,37 @@ button { font-family: inherit; }
 
 @media (max-width: 820px) {
   .hide-sm { display: none !important; }
+}
+
+/* Stack the hero gallery vertically on phones. The spotlight/hover
+   now grows a tile's height instead of its width. */
+@media (max-width: 720px) {
+  .hero { padding-top: 28px; }
+  /* logo/clock first, gallery below — so the wordmark is always
+     in view regardless of screen height */
+  .hero-foot {
+    order: -1;
+    margin-top: 0;
+  }
+  .gallery {
+    min-height: 0;
+    margin-top: 22px;
+  }
+  .gallery-row {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .gtile {
+    flex: none;
+    height: 104px;
+    transition: height .55s var(--ease);
+  }
+  .gtile:hover,
+  .gtile.active {
+    flex: none;
+    height: 268px;
+    transform: none;
+  }
 }
 @media (pointer: coarse) {
   #cursor { display: none !important; }
