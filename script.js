@@ -41,6 +41,51 @@ const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   items.forEach((el) => io.observe(el));
 })();
 
+// ---- Auto-rotating gallery spotlight --------------------------
+// Cycles the hover-zoom through the five tiles one at a time, every
+// 3s. A real mouse hover takes over instantly: cycling pauses and the
+// tile's own :hover holds the zoom until the pointer leaves.
+(function gallerySpotlight() {
+  const row = document.querySelector(".gallery-row");
+  if (!row || reduce) return;
+
+  const tiles = Array.from(row.querySelectorAll(".gtile"));
+  if (tiles.length < 2) return;
+
+  let i = 0;
+  let timer = null;
+  let hovering = false;
+
+  const show = (n) =>
+    tiles.forEach((t, idx) => t.classList.toggle("active", idx === n));
+  const stop = () => timer && (timer = clearInterval(timer));
+  const start = () => {
+    stop();
+    timer = setInterval(() => {
+      if (hovering) return;
+      i = (i + 1) % tiles.length;
+      show(i);
+    }, 3000);
+  };
+
+  tiles.forEach((tile, idx) => {
+    tile.addEventListener("mouseenter", () => {
+      hovering = true;
+      stop();
+      tiles.forEach((t) => t.classList.remove("active"));
+    });
+    tile.addEventListener("mouseleave", () => {
+      hovering = false;
+      i = idx; // resume the cycle from the tile the user was on
+      show(i);
+      start();
+    });
+  });
+
+  show(0);
+  start();
+})();
+
 // ---- Assemble mailto links at runtime (anti-harvest) ----------
 // The full address never appears in the HTML source; bots that scrape
 // static markup (or don't run JS) never see a `user@domain` string.
